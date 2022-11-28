@@ -1,30 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/Blog.module.css';
 import Link from 'next/link';
 
 const Blog = () => {
+  const [blogs, setBlogs] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/blogs');
+        const data = await response.json();
+        setBlogs(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className={styles.container}>
         <main className={styles.main}>
-          <Link href={'/blogpost/learn-javascript'} className={styles.blogItem}>
-            <div>
-              <h2>How to learn JS in 2022 ?</h2>
-              <p>JavaScript is the language to write logic to web applications.</p>
-            </div>
-          </Link>
-          <Link href={'/blogpost/learn-javascript'} className={styles.blogItem}>
-            <div>
-              <h2>How to learn JS in 2022 ?</h2>
-              <p>JavaScript is the language to write logic to web applications.</p>
-            </div>
-          </Link>
-          <Link href={'/blogpost/learn-javascript'} className={styles.blogItem}>
-            <div>
-              <h2>How to learn JS in 2022 ?</h2>
-              <p>JavaScript is the language to write logic to web applications.</p>
-            </div>
-          </Link>
+          {blogs.map((e, i) => {
+            return (
+              <Link key={i} href={`/blogpost/${e.slug}`} className={styles.blogItem}>
+                <div>
+                  <h2>{e.title}</h2>
+                  <p>{e.content.slice(0, 90)} ...</p>
+                </div>
+              </Link>
+            );
+          })}
         </main>
       </div>
     </>

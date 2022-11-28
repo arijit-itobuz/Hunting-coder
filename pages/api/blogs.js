@@ -3,10 +3,15 @@ import path from 'path';
 
 export default async function blogs(req, res) {
   try {
+    let allBlogs = [];
     const dir = await fs.readdir(path.join(process.cwd(), 'blogdata'));
-    res.status(200).json(dir);
+    for (const x of dir) {
+      const file = await fs.readFile(path.join(process.cwd(), 'blogdata', x), { encoding: 'utf-8' });
+      allBlogs.push(JSON.parse(file));
+    }
+    res.status(200).json(allBlogs);
   } catch (error) {
-    res.status(500).json({ error: 'No such directory found' });
+    res.status(500).json({ error: 'No blogs found' });
   }
 }
 
