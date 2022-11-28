@@ -34,7 +34,7 @@ export default function Home() {
         <p className={styles.description}>A blog for the coders by a coder !</p>
       </main>
 
-      <footer className={styles.footer}></footer>
+      {/* <footer className={styles.footer}></footer> */}
     </div>
   );
 }

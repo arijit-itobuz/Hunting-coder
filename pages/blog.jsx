@@ -9,19 +9,19 @@ const Blog = () => {
         <main className={styles.main}>
           <Link href={'/blogpost/learn-javascript'} className={styles.blogItem}>
             <div>
-              <h3>How to learn JS in 2022 ?</h3>
+              <h2>How to learn JS in 2022 ?</h2>
               <p>JavaScript is the language to write logic to web applications.</p>
             </div>
           </Link>
           <Link href={'/blogpost/learn-javascript'} className={styles.blogItem}>
             <div>
-              <h3>How to learn JS in 2022 ?</h3>
+              <h2>How to learn JS in 2022 ?</h2>
               <p>JavaScript is the language to write logic to web applications.</p>
             </div>
           </Link>
           <Link href={'/blogpost/learn-javascript'} className={styles.blogItem}>
             <div>
-              <h3>How to learn JS in 2022 ?</h3>
+              <h2>How to learn JS in 2022 ?</h2>
               <p>JavaScript is the language to write logic to web applications.</p>
             </div>
           </Link>
