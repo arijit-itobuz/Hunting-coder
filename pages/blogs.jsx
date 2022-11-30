@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../styles/Blog.module.css';
 import Link from 'next/link';
 
-const Blog = () => {
+const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -37,4 +37,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Blogs;
