@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 export default function index(req, res) {
-  res.status(200).json({ name: 'Arijit' });
+  res.status(200).json({ status: 'server running' });
 }
