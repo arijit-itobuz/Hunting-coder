@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/Blog.module.css';
 import Link from 'next/link';
+import Head from 'next/head';
 
-const Blog = () => {
+const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +20,9 @@ const Blog = () => {
 
   return (
     <>
+      <Head>
+        <title>Blogs</title>
+      </Head>
       <div className={styles.container}>
         <main className={styles.main}>
           {blogs.map((e, i) => {
@@ -37,4 +41,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Blogs;
