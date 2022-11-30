@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../../styles/BlogPost.module.css';
+import Head from 'next/head';
 
 const Slug = () => {
   const router = useRouter();
@@ -22,10 +23,13 @@ const Slug = () => {
       }
     };
     fetchData();
-  }, [router.isReady]);
+  }, [router.isReady, slug]);
 
   return (
     <>
+      <Head>
+        <title>Blog - {slug}</title>
+      </Head>
       <div className={styles.container}>
         <main className={styles.main}>
           <h1>{blog && blog.title}</h1>
